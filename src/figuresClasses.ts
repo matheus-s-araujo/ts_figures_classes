@@ -9,17 +9,11 @@ export interface Figure {
 export class Triangle implements Figure {
   public shape: Forms = 'triangle';
 
-  public a: number;
-
-  public b: number;
-
-  public c: number;
-
   constructor(
     public color: Colors,
-    a: number,
-    b: number,
-    c: number,
+    public a: number,
+    public b: number,
+    public c: number,
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
       throw new Error(
@@ -33,10 +27,6 @@ export class Triangle implements Figure {
     if (sides[2] >= sides[0] + sides[1]) {
       throw new Error(`Sides ${a}, ${b} and ${c} can't form a triangle.`);
     }
-
-    this.a = a;
-    this.b = b;
-    this.c = c;
   }
 
   getArea(): number {
@@ -52,11 +42,9 @@ export class Triangle implements Figure {
 export class Circle implements Figure {
   public shape: Forms = 'circle';
 
-  public radius: number;
-
   constructor(
     public color: Colors,
-    radius: number,
+    public radius: number,
   ) {
     if (radius <= 0) {
       throw new Error(
@@ -64,8 +52,6 @@ export class Circle implements Figure {
           'try to use positive numbers.',
       );
     }
-
-    this.radius = radius;
   }
 
   getArea(): number {
@@ -78,14 +64,10 @@ export class Circle implements Figure {
 export class Rectangle implements Figure {
   public shape: Forms = 'rectangle';
 
-  public width: number;
-
-  public height: number;
-
   constructor(
     public color: Colors,
-    width: number,
-    height: number,
+    public width: number,
+    public height: number,
   ) {
     if (width <= 0 || height <= 0) {
       throw new Error(
@@ -93,9 +75,6 @@ export class Rectangle implements Figure {
           'try to use positive numbers.',
       );
     }
-
-    this.width = width;
-    this.height = height;
   }
 
   getArea(): number {
